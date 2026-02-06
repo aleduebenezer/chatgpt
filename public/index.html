@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workit | Hire & Get Hired</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="logo">workit</div>
+      <nav>
+        <a href="#product">Product</a>
+        <a href="#flows">How it works</a>
+        <a href="#portal">Portal</a>
+      </nav>
+      <button class="ghost" id="open-auth">Get started</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">Moderate price. High-caliber talent.</p>
+          <h1>Meet verified talents and clients in one trusted hiring loop.</h1>
+          <p>
+            Workit is the platform where clients post goal-driven roles and talents apply with
+            confidence. Payments flow through Workit, contracts renew every 30 days, and both
+            sides leave reviews to keep the community transparent.
+          </p>
+          <div class="hero-actions">
+            <button class="primary" data-scroll="#portal">Launch the portal</button>
+            <button class="secondary" data-scroll="#flows">See the flow</button>
+          </div>
+          <div class="hero-metrics">
+            <div>
+              <h3>30-day cycles</h3>
+              <span>Auto-renewed & protected payouts.</span>
+            </div>
+            <div>
+              <h3>Skill matching</h3>
+              <span>Real-time prompts to apply wisely.</span>
+            </div>
+            <div>
+              <h3>Dual reviews</h3>
+              <span>Both parties share verified feedback.</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="card-top">
+            <h4>Client dashboard preview</h4>
+            <p>Track openings, contracts, and next pay dates.</p>
+          </div>
+          <div class="stat-grid">
+            <div>
+              <span>Open roles</span>
+              <strong id="metric-open">3</strong>
+            </div>
+            <div>
+              <span>Active contracts</span>
+              <strong id="metric-contracts">2</strong>
+            </div>
+            <div>
+              <span>Next payout</span>
+              <strong id="metric-payout">29 days</strong>
+            </div>
+          </div>
+          <button class="ghost" data-scroll="#portal">Open portal</button>
+        </div>
+      </section>
+
+      <section id="product" class="product">
+        <div class="section-title">
+          <p>Designed for clarity</p>
+          <h2>A hiring loop that keeps everyone aligned.</h2>
+        </div>
+        <div class="product-grid">
+          <article>
+            <h3>Client-led discovery</h3>
+            <p>
+              Clients post openings with the interest and skills they need. Talents see the roles
+              in their feed instantly.
+            </p>
+          </article>
+          <article>
+            <h3>Skill-aligned prompts</h3>
+            <p>
+              Talents are prompted when their skills do not match the stated interest. They can
+              still apply if they want to stretch.
+            </p>
+          </article>
+          <article>
+            <h3>Workit payments</h3>
+            <p>
+              Clients fund Workit first. Contracts run in 30-day cycles and payouts release when
+              the cycle completes.
+            </p>
+          </article>
+          <article>
+            <h3>Transparent histories</h3>
+            <p>
+              Both talent and client profiles list experience, roles, and reviews for public
+              confidence.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="flows" class="flows">
+        <div class="section-title">
+          <p>How Workit works</p>
+          <h2>Every step from posting to payout is tracked in real time.</h2>
+        </div>
+        <div class="flow-steps">
+          <div class="flow">
+            <span>01</span>
+            <h4>Register</h4>
+            <p>Join as a client or talent. Talents enter skills at signup.</p>
+          </div>
+          <div class="flow">
+            <span>02</span>
+            <h4>Post & discover</h4>
+            <p>Clients post roles with interests. Talents see a curated feed.</p>
+          </div>
+          <div class="flow">
+            <span>03</span>
+            <h4>Apply & approve</h4>
+            <p>Talents apply; clients start contracts and fund Workit.</p>
+          </div>
+          <div class="flow">
+            <span>04</span>
+            <h4>Pay & review</h4>
+            <p>Payments release every 30 days. Both sides leave reviews.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="portal" class="portal">
+        <div class="portal-header">
+          <div>
+            <p class="eyebrow">Live portal</p>
+            <h2>Sign up, post jobs, apply, and manage contracts.</h2>
+          </div>
+          <div class="portal-actions">
+            <button class="primary" id="open-auth-portal">Sign up / Login</button>
+            <button class="secondary" id="refresh-feed">Refresh feed</button>
+          </div>
+        </div>
+        <div class="portal-grid">
+          <section class="panel">
+            <h3>Talent feed</h3>
+            <div id="talent-feed" class="feed"></div>
+          </section>
+          <section class="panel">
+            <h3>Client dashboard</h3>
+            <div id="client-dashboard" class="dashboard"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal" id="auth-modal" aria-hidden="true">
+      <div class="modal-content">
+        <button class="close" id="close-auth">×</button>
+        <div class="tabs">
+          <button class="tab active" data-tab="signup">Sign up</button>
+          <button class="tab" data-tab="login">Login</button>
+        </div>
+        <div class="tab-panel active" id="signup">
+          <form id="signup-form">
+            <label>Name<input type="text" name="name" required /></label>
+            <label>Email<input type="email" name="email" required /></label>
+            <label>Password<input type="password" name="password" required /></label>
+            <label>Role
+              <select name="role">
+                <option value="client">Client</option>
+                <option value="talent">Talent</option>
+              </select>
+            </label>
+            <label>Skills (talents only)
+              <input type="text" name="skills" placeholder="UX, Product, Engineering" />
+            </label>
+            <button class="primary" type="submit">Create account</button>
+          </form>
+        </div>
+        <div class="tab-panel" id="login">
+          <form id="login-form">
+            <label>Email<input type="email" name="email" required /></label>
+            <label>Password<input type="password" name="password" required /></label>
+            <button class="primary" type="submit">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
