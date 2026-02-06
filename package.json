@@ -1,0 +1,17 @@
+{
+  "name": "workit-platform",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Workit platform for clients and talents",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "socket.io": "^4.7.4",
+    "sqlite3": "^5.1.6"
+  }
+}
